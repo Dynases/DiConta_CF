@@ -1927,7 +1927,8 @@ Public Class F1_AsientosContables
         objrep.SetParameterValue("fecha", tbFechaI.Value.ToString("dd/MM/yyyy"))
         objrep.SetParameterValue("tc", tbTipoCambio.Value)
         objrep.SetParameterValue("titulo", "COMPROBANTE DE INGRESO")
-        objrep.SetParameterValue("titulo2", "CF" + gs_empresaDesc.ToUpper)
+        objrep.SetParameterValue("titulo2", "CFDISTRIBUCIÓN S.R.L.")
+        objrep.SetParameterValue("Direccion", gs_empresaDireccion)
         objrep.SetParameterValue("glosa", cbSucursal.Text)
         objrep.SetParameterValue("Autor", gs_user)
         'cargar el numero de comprobante
@@ -1958,7 +1959,8 @@ Public Class F1_AsientosContables
         objrep.SetParameterValue("fecha", tbFechaI.Value.ToString("dd/MM/yyyy"))
         objrep.SetParameterValue("tc", tbTipoCambio.Value)
         objrep.SetParameterValue("titulo", "COMPROBANTE DE INGRESO")
-        objrep.SetParameterValue("titulo2", "CF" + gs_empresaDesc.ToUpper)
+        objrep.SetParameterValue("titulo2", "CFDISTRIBUCIÓN S.R.L.")
+        objrep.SetParameterValue("Direccion", gs_empresaDireccion)
         objrep.SetParameterValue("glosa", cbSucursal.Text)
         'cargar el numero de comprobante
         Dim dtNum As DataTable = L_prObtenerNumFacturaGeneral(1, tbFechaI.Value.Year, tbFechaI.Value.Month, 1)
@@ -1987,7 +1989,7 @@ Public Class F1_AsientosContables
         objrep.SetDataSource(dt)
         objrep.SetParameterValue("fechaDesde", "")
         objrep.SetParameterValue("fechaHasta", "")
-        objrep.SetParameterValue("titulo", "CF" + gs_empresaDesc.ToUpper)
+        objrep.SetParameterValue("titulo", "CFDISTRIBUCIÓN S.R.L." + gs_empresaDesc.ToUpper)
         objrep.SetParameterValue("nit", gs_empresaNit.ToUpper)
         objrep.SetParameterValue("ultimoRegistro", 0)
         objrep.SetParameterValue("fecha", tbFechaI.Value.ToString("dd/MM/yyyy"))

@@ -130,7 +130,7 @@ Public Class PR_ResumenVentasDetallado
 
             objrep.SetParameterValue("fecha1", tbfec1.Value.ToString("dd/MM/yyyy"))
             objrep.SetParameterValue("fecha2", tbfec2.Value.ToString("dd/MM/yyyy"))
-            objrep.SetParameterValue("titulo", "CF" + gs_empresaDesc.ToUpper)
+            objrep.SetParameterValue("titulo", "CFDISTRIBUCIÓN S.R.L.")
             objrep.SetParameterValue("sucursal", cbSucursal.Text.ToUpper)
             'objrep.SetParameterValue("nit", gs_empresaNit.ToUpper)
 

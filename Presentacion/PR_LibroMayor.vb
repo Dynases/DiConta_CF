@@ -494,7 +494,7 @@ Public Class PR_LibroMayor
 
             objrep.SetParameterValue("fechaDesde", tbFechaDel.Value.ToString("dd/MM/yyyy"))
             objrep.SetParameterValue("fechaHasta", tbFechaAl.Value.ToString("dd/MM/yyyy"))
-            objrep.SetParameterValue("titulo", "CF" + gs_empresaDesc.ToUpper)
+            objrep.SetParameterValue("titulo", "CFDISTRIBUCIÓN S.R.L.")
             objrep.SetParameterValue("nit", gs_empresaNit.ToUpper)
             objrep.SetParameterValue("cliente", IIf(tbCliente.Tag > 0, _cobrarPagar, ""))
             objrep.SetParameterValue("nroCuenta", tbNumi.Text)
@@ -534,7 +534,7 @@ Public Class PR_LibroMayor
 
             objrep.SetParameterValue("fechaDesde", tbFechaDel.Value.ToString("dd/MM/yyyy"))
             objrep.SetParameterValue("fechaHasta", tbFechaAl.Value.ToString("dd/MM/yyyy"))
-            objrep.SetParameterValue("titulo", "CF" + gs_empresaDesc.ToUpper)
+            objrep.SetParameterValue("titulo", "CFDISTRIBUCIÓN S.R.L.")
             objrep.SetParameterValue("nit", gs_empresaNit.ToUpper)
             objrep.SetParameterValue("cliente", IIf(tbCliente.Tag > 0, _cobrarPagar, ""))
             objrep.SetParameterValue("nroCuenta", tbNumi.Text)
@@ -728,9 +728,11 @@ Public Class PR_LibroMayor
                     objrep.SetDataSource(dt)
                     objrep.SetParameterValue("fechaDesde", "")
                     objrep.SetParameterValue("fechaHasta", "")
-                    objrep.SetParameterValue("titulo", "CF" + gs_empresaDescSistema.ToUpper)
+                    objrep.SetParameterValue("titulo", "CFDISTRIBUCIÓN S.R.L.")
+                    objrep.SetParameterValue("Direccion", gs_empresaDireccion)
                     objrep.SetParameterValue("nit", gs_empresaNit.ToUpper)
                     objrep.SetParameterValue("ultimoRegistro", 0)
+
 
                     P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
                     P_Global.Visualizador.Show() 'Comentar

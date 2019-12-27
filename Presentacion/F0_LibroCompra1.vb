@@ -430,7 +430,7 @@ Public Class F0_LibroCompra1
                 objrep.SetParameterValue("nombre", dtTitulos.Rows(1).Item("yedesc").ToString)
 
                 'objrep.SetParameterValue("empresaDesc", gs_empresaDescSistema)
-                objrep.SetParameterValue("empresaDesc", "CF" + gs_empresaDesc.ToUpper)
+                objrep.SetParameterValue("empresaDesc", "CFDISTRIBUCIÓN S.R.L." + gs_empresaDesc.ToUpper)
 
                 objrep.SetParameterValue("empresaNit", gs_empresaNit)
                 objrep.SetParameterValue("empresaDirec", gs_empresaDireccion)

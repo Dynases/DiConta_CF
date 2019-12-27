@@ -448,7 +448,7 @@ Public Class F0_LibroVenta
         objrep.SetParameterValue("nombre", dtTitulos.Rows(1).Item("yedesc").ToString)
 
         'objrep.SetParameterValue("empresaDesc", gs_empresaDescSistema)
-        objrep.SetParameterValue("empresaDesc", "CF" + gs_empresaDesc.ToUpper)
+        objrep.SetParameterValue("empresaDesc", "CFDISTRIBUCIÓN S.R.L." + gs_empresaDesc.ToUpper)
         'gs_empresaDireccion
         objrep.SetParameterValue("empresaDirec", gs_empresaDireccion)
         If gi_empresaNumi = 1 Then 'filial

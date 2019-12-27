@@ -38,7 +38,7 @@ Public Class PR_CierreGeneral
 
                 objrep.SetParameterValue("fechadel", tbFechaDel.Value.ToString("dd/MM/yyyy"))
                 objrep.SetParameterValue("fechaal", tbFechaAl.Value.ToString("dd/MM/yyyy"))
-                objrep.SetParameterValue("titulo", "CF" + gs_empresaDesc.ToUpper)
+                objrep.SetParameterValue("titulo", "CFDISTRIBUCIÓN S.R.L." + gs_empresaDesc.ToUpper)
                 objrep.SetParameterValue("sucursal", cbSucursal.Text.ToUpper)
                 'objrep.SetParameterValue("nit", gs_empresaNit.ToUpper)
 
@@ -67,7 +67,7 @@ Public Class PR_CierreGeneral
 
                 objrep.SetParameterValue("fechadel", tbFechaDel.Value.ToString("dd/MM/yyyy"))
                 objrep.SetParameterValue("fechaal", tbFechaAl.Value.ToString("dd/MM/yyyy"))
-                objrep.SetParameterValue("titulo", "CF" + gs_empresaDesc.ToUpper)
+                objrep.SetParameterValue("titulo", "CFDISTRIBUCIÓN S.R.L." + gs_empresaDesc.ToUpper)
                 objrep.SetParameterValue("sucursal", cbSucursal.Text.ToUpper)
                 'objrep.SetParameterValue("nit", gs_empresaNit.ToUpper)
 

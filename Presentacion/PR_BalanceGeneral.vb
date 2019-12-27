@@ -99,7 +99,7 @@ Public Class PR_BalanceGeneral
 
             objrep.SetParameterValue("fechaDesde", tbFechaDel.Value.ToString("dd/MM/yyyy"))
             objrep.SetParameterValue("fechaHasta", tbFechaAl.Value.ToString("dd/MM/yyyy"))
-            objrep.SetParameterValue("titulo", "CF" + gs_empresaDesc.ToUpper)
+            objrep.SetParameterValue("titulo", "CFDISTRIBUCIÓN S.R.L." + gs_empresaDesc.ToUpper)
             objrep.SetParameterValue("nit", gs_empresaNit.ToUpper)
 
             MReportViewer.Show()

@@ -129,7 +129,7 @@ Public Class PR_EstadoCuentasActivoPasivo
             objrep.SetDataSource(dt)
             objrep.SetParameterValue("fechaDesde", tbFechaDel.Value.ToString("dd/MM/yyyy"))
             objrep.SetParameterValue("fechaHasta", tbFechaAl.Value.ToString("dd/MM/yyyy"))
-            objrep.SetParameterValue("titulo", "CF" + gs_empresaDesc.ToUpper)
+            objrep.SetParameterValue("titulo", "CFDISTRIBUCIÓN S.R.L.")
             objrep.SetParameterValue("nit", gs_empresaNit.ToUpper)
             MReportViewer.ReportSource = objrep
 
@@ -199,7 +199,7 @@ Public Class PR_EstadoCuentasActivoPasivo
             objrep.SetDataSource(dt)
             objrep.SetParameterValue("fechaDesde", tbFechaDel.Value.ToString("dd/MM/yyyy"))
             objrep.SetParameterValue("fechaHasta", tbFechaAl.Value.ToString("dd/MM/yyyy"))
-            objrep.SetParameterValue("titulo", "CF" + gs_empresaDesc.ToUpper)
+            objrep.SetParameterValue("titulo", "CFDISTRIBUCIÓN S.R.L.")
             objrep.SetParameterValue("nit", gs_empresaNit.ToUpper)
             MReportViewer.ReportSource = objrep
 

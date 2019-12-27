@@ -52,7 +52,7 @@ Public Class PR_PlanCuentas
             objrep.SetDataSource(dt)
             MReportViewer.ReportSource = objrep
 
-            objrep.SetParameterValue("titulo", "CF" + gs_empresaDesc.ToUpper)
+            objrep.SetParameterValue("titulo", "CF")
 
             MReportViewer.Show()
             MReportViewer.BringToFront()

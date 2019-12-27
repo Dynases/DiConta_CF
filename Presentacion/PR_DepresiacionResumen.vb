@@ -56,7 +56,7 @@ Public Class PR_DepresiacionResumen
 
             Dim objrep As New R_DepresiacionResumen
             objrep.SetDataSource(dt)
-            objrep.SetParameterValue("titulo", "CF" + gs_empresaDesc.ToUpper)
+            objrep.SetParameterValue("titulo", "CFDISTRIBUCIÓN S.R.L." + gs_empresaDesc.ToUpper)
             objrep.SetParameterValue("titulo2", titulo)
             objrep.SetParameterValue("nit", gs_empresaNit.ToUpper)
 

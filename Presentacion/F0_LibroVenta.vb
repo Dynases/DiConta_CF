@@ -415,6 +415,7 @@ Public Class F0_LibroVenta
                 fil.Item("fvadesc") = 0
                 fil.Item("fvatotal") = 0
                 fil.Item("fvadebfis") = 0
+                fil.Item("fvaccont") = 0
             End If
         Next
 

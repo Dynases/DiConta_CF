@@ -58,7 +58,7 @@ Public Class P_Principal
 
         L_prAbrirConexion(gs_Ip, gs_UsuarioSql, gs_ClaveSql, gs_NombreBD)
 
-        L_prAbrirConexionBitacora(gs_Ip, gs_UsuarioSql, gs_ClaveSql, "BHDiconCF")
+        L_prAbrirConexionBitacora(gs_Ip, gs_UsuarioSql, gs_ClaveSql, "BHDiconCF20")
 
         Me.WindowState = FormWindowState.Maximized
         Me.Text = "DICONTA"

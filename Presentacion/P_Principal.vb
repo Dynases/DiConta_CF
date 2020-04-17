@@ -1222,4 +1222,19 @@ Public Class P_Principal
         frm.Show()
         tab3.Text = frm.Text
     End Sub
+
+    Private Sub btVentCierreCaja2_Click(sender As Object, e As EventArgs) Handles btVentCierreCaja2.Click
+        SideNav1.IsMenuExpanded = False
+        Ventana.Select()
+        Dim frm As New F1_AsientosContables2
+        frm._nameButton = btVentCierreCaja2.Name
+        frm._modulo = FP_Ventas
+        Dim tab3 As SuperTabItem = superTabControl3.CreateTab(frm.Text)
+        frm._tab = tab3
+        Dim panel As Panel = P_Global._fnCrearPanelVentanas(frm)
+        superTabControl3.SelectedTabIndex = superTabControl3.Tabs.Count - 1
+        tab3.AttachedControl.Controls.Add(panel)
+        frm.Show()
+        tab3.Text = frm.Text
+    End Sub
 End Class

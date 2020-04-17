@@ -382,8 +382,6 @@ Public Class F1_AsientosContables
 
     End Sub
 
-
-
     Public Function ObtenerTotales() As Double
         If (cbSucursal.Value >= 1) Then
             Dim dt As DataTable = L_prObtenerPlantila(cbSucursal.Value)
@@ -668,21 +666,16 @@ Public Class F1_AsientosContables
         Dim BanderaCuentaPorCobrar As Boolean = False
         Dim TotalTransaccion As Double
         For i As Integer = 0 To dt.Rows.Count - 1
-
             Dim dtDetalle As DataTable = L_prObtenerDetallePlantilla(dt.Rows(i).Item("canumi"), cbSucursal.Value)
             Dim tipo As Integer = dtDetalle.Rows(0).Item("tipo")
-
             If (tipo = 1 Or tipo = 0 Or tipo = 2) Then ''''Venta Contado
                 If (cbSucursal.Value = 1 Or cbSucursal.Value = 2) Then
                     TotalTransaccion = ObtenerTotales()
-
                 Else
                     TotalTransaccion = ObtenerTotalVentasCreditoOContado(tipo)
                 End If
-
             Else
                 TotalTransaccion = ObtenerTotales()
-
             End If
 
             ''canumi , nro,cadesc ,chporcen,chdebe ,chhaber 
@@ -1517,15 +1510,11 @@ Public Class F1_AsientosContables
         btnNuevoTipoCambio.Visible = True
         tbTipoCambio.IsInputReadOnly = False
         tbNumi.Clear()
-
     End Sub
 
     Private Sub F1_ServicioCuentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         _IniciarTodo()
     End Sub
-
-
-
     Public Function _fnVisualizarRegistros() As Boolean
         Return btnGrabar.Enabled = True
     End Function
@@ -1846,7 +1835,6 @@ Public Class F1_AsientosContables
             ToastNotification.Show(Me, "NO HAY TIPO DE CAMBIO REGISTRADO. POR FAVOR REGISTRE EL TIPO DE CAMBIO".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
             cbSucursal.Focus()
             Return
-
         End If
         If (cbSucursal.SelectedIndex < 0) Then
             Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)

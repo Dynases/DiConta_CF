@@ -1596,7 +1596,25 @@ Sucursal.canumi =ZY003.ydsuc" + _Cadena
 
         Return _resultado
     End Function
+    Public Shared Function L_prCajaCambiarEstado(ByRef _numi As String) As Boolean
+        Dim _resultado As Boolean
 
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 2))
+        _listParam.Add(New Datos.DParametro("@olnumi", _numi))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TI005", _listParam)
+        If _Tabla.Rows.Count > 0 Then
+            _numi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
     Public Shared Function L_fnComprobanteIntegracionArqueoEliminar(_vcnumi As String, ByRef mensaje As String) As Boolean
         Dim _resultado As Boolean
         If L_fnbValidarEliminacion(_vcnumi, "TA005", "ahnumi", mensaje) = True Then
@@ -5958,6 +5976,16 @@ Sucursal.canumi =ZY003.ydsuc" + _Cadena
 
         Dim _listParam As New List(Of Datos.DParametro)
         _listParam.Add(New Datos.DParametro("@tipo", 60))
+        _listParam.Add(New Datos.DParametro("@seuact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@fechaI", fechai))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_Asiento", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function L_prObtenerIdCaja(fechai As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 64))
         _listParam.Add(New Datos.DParametro("@seuact", L_Usuario))
         _listParam.Add(New Datos.DParametro("@fechaI", fechai))
         _Tabla = D_ProcedimientoConParam("sp_Mam_Asiento", _listParam)

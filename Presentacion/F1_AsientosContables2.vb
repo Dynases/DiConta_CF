@@ -667,7 +667,14 @@ Public Class F1_AsientosContables2
 
             Dim res As Boolean = L_prComprobanteGrabarIntegracion(numiComprobante, "", 1, tbFechaI.Value.Year.ToString, tbFechaI.Value.Month.ToString, "", tbFechaI.Value.Date.ToString("yyyy/MM/dd"), tbTipoCambio.Value.ToString, "", "", gi_empresaNumi, dtDetalle, dtDetalle2, "", 0, tbTipoCambio.Value, tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaI.Value.ToString("yyyy/MM/dd"), 1, _LisTransacciones, cbPlantilla.Value,
                                                                   tipo, factura, tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaI.Value.ToString("yyyy/MM/dd"), TipoTransacion, dtTO00111)
+
             If res Then
+                'camabiar de estado a Caja en DiSOFT
+                Dim idCaja = L_prObtenerIdCaja(tbFechaI.Value.ToString("yyyy/MM/dd"))
+                For Each Id As DataRow In idCaja.Rows
+                    L_prCajaCambiarEstado(Id.Item("olnumi"))
+                Next
+
                 Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
                 ToastNotification.Show(Me, "El Asiento Contable fue generado Exitosamente".ToUpper,
                                           img, 2000,

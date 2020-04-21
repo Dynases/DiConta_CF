@@ -30,6 +30,7 @@ Public Class F1_AsientosContables2
             _prAsignarPermisos()
             _prCargarMovimiento()
             _prInhabiliitar()
+            cbPlantilla.Value = 3
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
         End Try
@@ -310,10 +311,9 @@ Public Class F1_AsientosContables2
             'Else
             '    TotalTransaccion = 0
             'End If
-            If (tipo = 1 Or tipo = 0 Or tipo = 2 Or tipo = 4) Then ''''Venta Contado
+            If (tipo = 1 Or tipo = 0 Or tipo = 2 Or tipo = 4 Or tipo = 5) Then ''''Venta Contado
                 If (cbPlantilla.Value = 1 Or cbPlantilla.Value = 2) Then
                     TotalTransaccion = ObtenerTotales()
-
                 Else
                     TotalTransaccion = ObtenerTotalVentasCreditoOContado(tipo)
                 End If
@@ -328,9 +328,11 @@ Public Class F1_AsientosContables2
             Dim numiCuenta As Integer = dt.Rows(i).Item("canumi")
 
             Dim numicuentaatc As Integer = 21 'ATC
+            Dim diferencia As Double = 0
+            diferencia = IIf(tipo = 5, TotalTransaccion, 0)
 
             Dim total As Double = TotalTransaccion
-            If (total > 0) Then
+            If (total <> 0) Then
                 Dim dtObtenerCuenta As DataTable = L_prCuentaDiferencia(numiCuenta)
                 tabla.Rows.Add(dtObtenerCuenta.Rows(0).Item("canumi"), dtObtenerCuenta.Rows(0).Item("cacta"), dtObtenerCuenta.Rows(0).Item("cadesc"), DBNull.Value, DBNull.Value, DBNull.Value, DBNull.Value, DBNull.Value, DBNull.Value, DBNull.Value, DBNull.Value, Escuela, 0) '''' Aqui agrego al padre
                 tabla.ImportRow(dt.Rows(i))  '''Aqui agrego al hijo
@@ -370,21 +372,47 @@ Public Class F1_AsientosContables2
                     End If
 
                 Else
-                    Dim Glosa As String = dt.Rows(i).Item("cadesc")
-                    Dim conversion As Double = (total * (porcentaje / 100))
-                    conversion = to3Decimales(conversion)
-                    Dim totales As Double = Round(conversion, 2)
-                    Dim TotalSus As Double = Round(to3Decimales(totales / (tbTipoCambio.Value)), 2)
-                    Linea = Linea + 1
-
-                    If (dt.Rows(i).Item("chdebe") > 0) Then
-                        tabla.Rows.Add(numiCuenta, DBNull.Value, Glosa + " DEL " + tbFechaI.Value.ToString("dd/MM/yyyy"), DBNull.Value, DBNull.Value, DBNull.Value, tbTipoCambio.Value, totales, DBNull.Value, TotalSus, DBNull.Value, Escuela, Linea)
+                    If tipo = 4 Then
+                        Dim totalBanco = L_prObtenerTotalesBanco(tbFechaI.Value.ToString("yyyy/MM/dd"))
+                        For Each totalB As DataRow In totalBanco.Rows
+                            Dim Glosa As String = dt.Rows(i).Item("cadesc")
+                            Dim conversion As Double = (totalB.Item("TotalDeposito") * (porcentaje / 100))
+                            conversion = to3Decimales(conversion)
+                            Dim totales As Double = Round(conversion, 2)
+                            Dim TotalSus As Double = Round(to3Decimales(totales / (tbTipoCambio.Value)), 2)
+                            Linea = Linea + 1
+                            If (dt.Rows(i).Item("chdebe") > 0) Then
+                                tabla.Rows.Add(numiCuenta, DBNull.Value, Glosa + " DEL " + tbFechaI.Value.ToString("dd/MM/yyyy"), DBNull.Value, DBNull.Value, DBNull.Value, tbTipoCambio.Value, totales, DBNull.Value, TotalSus, DBNull.Value, Escuela, Linea)
+                            Else
+                                tabla.Rows.Add(numiCuenta, DBNull.Value, Glosa + " DEL " + tbFechaI.Value.ToString("dd/MM/yyyy"), DBNull.Value, DBNull.Value, DBNull.Value, tbTipoCambio.Value, DBNull.Value, totales, DBNull.Value, TotalSus, Escuela, Linea)
+                            End If
+                        Next
                     Else
-                        tabla.Rows.Add(numiCuenta, DBNull.Value, Glosa + " DEL " + tbFechaI.Value.ToString("dd/MM/yyyy"), DBNull.Value, DBNull.Value, DBNull.Value, tbTipoCambio.Value, DBNull.Value, totales, DBNull.Value, TotalSus, Escuela, Linea)
+
+                        Dim Glosa As String = dt.Rows(i).Item("cadesc")
+                        Dim conversion As Double = (total * (porcentaje / 100))
+                        conversion = to3Decimales(conversion)
+                        Dim totales As Double = Round(conversion, 2)
+                        Dim TotalSus As Double = Round(to3Decimales(totales / (tbTipoCambio.Value)), 2)
+                        Linea = Linea + 1
+
+                        If tipo = 5 Then ' Existencia de diferencia
+                            If (diferencia < 0) Then
+                                diferencia = diferencia * -1
+                                tabla.Rows.Add(numiCuenta, DBNull.Value, Glosa + " DEL " + tbFechaI.Value.ToString("dd/MM/yyyy"), DBNull.Value, DBNull.Value, DBNull.Value, tbTipoCambio.Value, totales * -1, DBNull.Value, TotalSus * -1, DBNull.Value, Escuela, Linea)
+                            Else
+                                tabla.Rows.Add(numiCuenta, DBNull.Value, Glosa + " DEL " + tbFechaI.Value.ToString("dd/MM/yyyy"), DBNull.Value, DBNull.Value, DBNull.Value, tbTipoCambio.Value, DBNull.Value, totales, DBNull.Value, TotalSus, Escuela, Linea)
+                            End If
+                        Else
+                            If (dt.Rows(i).Item("chdebe") > 0) Then
+                                tabla.Rows.Add(numiCuenta, DBNull.Value, Glosa + " DEL " + tbFechaI.Value.ToString("dd/MM/yyyy"), DBNull.Value, DBNull.Value, DBNull.Value, tbTipoCambio.Value, totales, DBNull.Value, TotalSus, DBNull.Value, Escuela, Linea)
+                            Else
+                                tabla.Rows.Add(numiCuenta, DBNull.Value, Glosa + " DEL " + tbFechaI.Value.ToString("dd/MM/yyyy"), DBNull.Value, DBNull.Value, DBNull.Value, tbTipoCambio.Value, DBNull.Value, totales, DBNull.Value, TotalSus, Escuela, Linea)
+                            End If
+                        End If
                     End If
                 End If
             End If
-
             'End If
         Next
         If tabla.Rows.Count = 0 Then
@@ -512,9 +540,9 @@ Public Class F1_AsientosContables2
             Dim dt As DataTable = L_prObtenerPlantila(cbPlantilla.Value)
             If (dt.Rows.Count > 0) Then
                 Dim dtTotales = L_prObtenerTotalesConciliacion(tbFechaI.Value.ToString("yyyy/MM/dd"))
-                Dim totalGeneral = 0
+                Dim totalGeneral As Double = 0
                 For Each Cantidad As DataRow In dtTotales.Rows
-                    totalGeneral = totalGeneral + Cantidad.Item("TotalGeneral")
+                    totalGeneral = totalGeneral + Cantidad.Item("TotalConciliacion")
                 Next
                 If (totalGeneral > 0) Then
                     Return totalGeneral
@@ -709,6 +737,7 @@ Public Class F1_AsientosContables2
             objrep.SetParameterValue("titulo", "CFDISTRIBUCIÓN S.R.L." + gs_empresaDesc.ToUpper)
             objrep.SetParameterValue("nit", gs_empresaNit.ToUpper)
             objrep.SetParameterValue("ultimoRegistro", 0)
+            objrep.SetParameterValue("Direccion", gs_empresaDireccion)
             objrep.SetParameterValue("fecha", tbFechaI.Value.ToString("dd/MM/yyyy"))
             objrep.SetParameterValue("Autor", gs_user)
 
@@ -900,7 +929,7 @@ Public Class F1_AsientosContables2
 
                 If (TipoVenta = 1) Then
                     Dim dtTotales = L_prObtenerTotalesContado(tbFechaI.Value.ToString("yyyy/MM/dd"))
-                    Dim totalGeneral = 0
+                    Dim totalGeneral As Double = 0
                     For Each Cantidad As DataRow In dtTotales.Rows
                         totalGeneral = totalGeneral + Cantidad.Item("TotalEfectivo")
                     Next
@@ -928,7 +957,7 @@ Public Class F1_AsientosContables2
                 End If
                 If (TipoVenta = 4) Then
                     Dim dtTotales = L_prObtenerTotalesBanco(tbFechaI.Value.ToString("yyyy/MM/dd"))
-                    Dim totalGeneral = 0
+                    Dim totalGeneral As Double = 0
                     For Each Cantidad As DataRow In dtTotales.Rows
                         totalGeneral = totalGeneral + Cantidad.Item("TotalDeposito")
                     Next
@@ -938,6 +967,14 @@ Public Class F1_AsientosContables2
                         Return 0
                     End If
                 End If
+                If (TipoVenta = 5) Then
+                    Dim dtTotales = L_prObtenerTotalesDiferencia(tbFechaI.Value.ToString("yyyy/MM/dd"))
+                    Dim totalGeneral As Double = 0
+                    For Each Cantidad As DataRow In dtTotales.Rows
+                        totalGeneral = totalGeneral + Cantidad.Item("Diferencia")
+                    Next
+                    Return totalGeneral
+                End If
             Else
                 Return 0
             End If
@@ -946,6 +983,7 @@ Public Class F1_AsientosContables2
         End If
         Return 0
     End Function
+
     Private Sub _prImprimir()
         Try
             Dim objrep As New R_ComprobanteIntegracion

@@ -1050,34 +1050,39 @@ Public Class F1_AsientosContables2
     End Sub
 
     Private Sub btnNuevo_Click(sender As Object, e As EventArgs) Handles btnNuevo.Click
-        _prhabilitar()
-        _prLimpiar()
-        btnNuevo.Enabled = False
-        btnModificar.Enabled = False
-        btnGrabar.Enabled = True
-        btnEliminar.Enabled = False
+        Try
+            _prhabilitar()
+            _prLimpiar()
+            btnNuevo.Enabled = False
+            btnModificar.Enabled = False
+            btnGrabar.Enabled = True
+            btnEliminar.Enabled = False
 
-        Dim dtTipoCambio As DataTable = L_prTipoCambioGeneralPorFecha(Now.ToString("yyyy/MM/dd"))
-        If dtTipoCambio.Rows.Count = 0 Then
-            _existTipoCambio = False
-            tbTipoCambio.Value = 0
-            tbTipoCambio.BackgroundStyle.BackColor = Color.Red
-            btnNuevoTipoCambio.Visible = True
-        Else
-            _existTipoCambio = True
-            tbTipoCambio.Value = dtTipoCambio.Rows(0).Item("cbdol")
-            tbTipoCambio.BackgroundStyle.BackColor = Color.White
-            MEP.SetError(tbTipoCambio, "")
-            btnNuevoTipoCambio.Visible = False
+            Dim dtTipoCambio As DataTable = L_prTipoCambioGeneralPorFecha(Now.ToString("yyyy/MM/dd"))
+            If dtTipoCambio.Rows.Count = 0 Then
+                _existTipoCambio = False
+                tbTipoCambio.Value = 0
+                tbTipoCambio.BackgroundStyle.BackColor = Color.Red
+                btnNuevoTipoCambio.Visible = True
+            Else
+                _existTipoCambio = True
+                tbTipoCambio.Value = dtTipoCambio.Rows(0).Item("cbdol")
+                tbTipoCambio.BackgroundStyle.BackColor = Color.White
+                MEP.SetError(tbTipoCambio, "")
+                btnNuevoTipoCambio.Visible = False
 
-        End If
+            End If
 
-        If (gb_userTodasSuc = False And CType(cbPlantilla.DataSource, DataTable).Rows.Count > 0) Then
-            cbPlantilla.SelectedIndex = _fnObtenerPosSucursal(gi_userNumiSucursal)
-            cbPlantilla.ReadOnly = True
-        Else
-            cbPlantilla.ReadOnly = False
-        End If
+            If (gb_userTodasSuc = False And CType(cbPlantilla.DataSource, DataTable).Rows.Count > 0) Then
+                cbPlantilla.SelectedIndex = _fnObtenerPosSucursal(gi_userNumiSucursal)
+                cbPlantilla.ReadOnly = True
+            Else
+                cbPlantilla.ReadOnly = False
+            End If
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
@@ -1189,6 +1194,28 @@ Public Class F1_AsientosContables2
                     Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
                     ToastNotification.Show(Me, mensajeError, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
                 End If
+            End If
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub tbFechaI_ValueChanged(sender As Object, e As EventArgs) Handles tbFechaI.ValueChanged
+        Try
+            'verifico el tipo de cambio de la fecha elegida
+            Dim dtTipoCambio As DataTable = L_prTipoCambioGeneralPorFecha(tbFechaI.Value.ToString("yyyy/MM/dd"))
+            If dtTipoCambio.Rows.Count = 0 Then
+                '_existTipoCambio = False
+                tbTipoCambio.Value = Nothing
+                tbTipoCambio.Text = ""
+                tbTipoCambio.BackgroundStyle.BackColor = Color.Red
+                btnNuevoTipoCambio.Visible = True
+            Else
+                '_existTipoCambio = True
+                tbTipoCambio.Value = dtTipoCambio.Rows(0).Item("cbdol")
+                tbTipoCambio.BackgroundStyle.BackColor = Color.White
+                btnNuevoTipoCambio.Visible = False
+                MEP.SetError(tbTipoCambio, "")
             End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)

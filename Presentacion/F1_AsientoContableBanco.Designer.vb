@@ -1,9 +1,8 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class F1_AsientosContables
+Partial Class F1_AsientoContableBanco
     Inherits Modelos.ModeloF00
 
-
-    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
@@ -15,18 +14,19 @@ Partial Class F1_AsientosContables
         End Try
     End Sub
 
-    'Requerido por el Diseñador de Windows Forms
+    'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
 
-    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
-    'Se puede modificar usando el Diseñador de Windows Forms.  
-    'No lo modifique con el editor de código.
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_AsientosContables))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_AsientoContableBanco))
         Dim cbSucursal_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Me.VisualStyleManager1 = New Janus.Windows.Common.VisualStyleManager(Me.components)
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.GroupPanelBanco = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.grbanco = New Janus.Windows.GridEX.GridEX()
         Me.GrDatos = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.Lb_Saldo = New System.Windows.Forms.Label()
         Me.Lb_Banco = New System.Windows.Forms.Label()
@@ -46,12 +46,6 @@ Partial Class F1_AsientosContables
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
         Me.tbFechaI = New System.Windows.Forms.DateTimePicker()
-        Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.grmovimientos = New Janus.Windows.GridEX.GridEX()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.GroupPanelBanco = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.grbanco = New Janus.Windows.GridEX.GridEX()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.SuperTabGeneral = New DevComponents.DotNetBar.SuperTabControl()
         Me.SuperTabControlPanel2 = New DevComponents.DotNetBar.SuperTabControlPanel()
         Me.grComprobante = New Janus.Windows.GridEX.GridEX()
@@ -59,6 +53,8 @@ Partial Class F1_AsientosContables
         Me.SuperTabControlPanel3 = New DevComponents.DotNetBar.SuperTabControlPanel()
         Me.grAsientoBanco = New Janus.Windows.GridEX.GridEX()
         Me.SuperTabItem3 = New DevComponents.DotNetBar.SuperTabItem()
+        Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.grmovimientos = New Janus.Windows.GridEX.GridEX()
         Me.btnbanco = New DevComponents.DotNetBar.ButtonX()
         Me.PanelSuperior.SuspendLayout()
         Me.PanelInferior.SuspendLayout()
@@ -77,26 +73,26 @@ Partial Class F1_AsientosContables
         Me.MSuperTabControl.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelBuscador.SuspendLayout()
-        Me.GrDatos.SuspendLayout()
-        CType(Me.cbSucursal, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.tbTipoCambio, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupPanel2.SuspendLayout()
-        CType(Me.grmovimientos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.GroupPanelBanco.SuspendLayout()
         CType(Me.grbanco, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GrDatos.SuspendLayout()
+        CType(Me.cbSucursal, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tbTipoCambio, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SuperTabGeneral, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabGeneral.SuspendLayout()
         Me.SuperTabControlPanel2.SuspendLayout()
         CType(Me.grComprobante, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControlPanel3.SuspendLayout()
         CType(Me.grAsientoBanco, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupPanel2.SuspendLayout()
+        CType(Me.grmovimientos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelSuperior
         '
-        Me.PanelSuperior.Margin = New System.Windows.Forms.Padding(2)
-        Me.PanelSuperior.Size = New System.Drawing.Size(1028, 72)
+        Me.PanelSuperior.Controls.Add(Me.btnbanco)
+        Me.PanelSuperior.Size = New System.Drawing.Size(1123, 72)
         Me.PanelSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelSuperior.Style.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(150, Byte), Integer))
         Me.PanelSuperior.Style.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(150, Byte), Integer))
@@ -110,11 +106,16 @@ Partial Class F1_AsientosContables
         Me.PanelSuperior.StyleMouseOver.BackColor1.Color = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(150, Byte), Integer))
         Me.PanelSuperior.StyleMouseOver.BackColor2.Color = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(150, Byte), Integer))
         Me.PanelSuperior.StyleMouseOver.BackgroundImage = CType(resources.GetObject("PanelSuperior.StyleMouseOver.BackgroundImage"), System.Drawing.Image)
+        Me.PanelSuperior.Controls.SetChildIndex(Me.PanelToolBar1, 0)
+        Me.PanelSuperior.Controls.SetChildIndex(Me.PanelToolBar2, 0)
+        Me.PanelSuperior.Controls.SetChildIndex(Me.MRlAccion, 0)
+        Me.PanelSuperior.Controls.SetChildIndex(Me.PictureBox1, 0)
+        Me.PanelSuperior.Controls.SetChildIndex(Me.btnbanco, 0)
         '
         'PanelInferior
         '
-        Me.PanelInferior.Margin = New System.Windows.Forms.Padding(2)
-        Me.PanelInferior.Size = New System.Drawing.Size(1028, 39)
+        Me.PanelInferior.Location = New System.Drawing.Point(0, 659)
+        Me.PanelInferior.Size = New System.Drawing.Size(1123, 39)
         Me.PanelInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelInferior.Style.BackColor1.Color = System.Drawing.Color.Transparent
         Me.PanelInferior.Style.BackColor2.Color = System.Drawing.Color.Transparent
@@ -149,9 +150,7 @@ Partial Class F1_AsientosContables
         '
         'TxtNombreUsu
         '
-        Me.TxtNombreUsu.Margin = New System.Windows.Forms.Padding(2)
         Me.TxtNombreUsu.ReadOnly = True
-        Me.TxtNombreUsu.Size = New System.Drawing.Size(135, 23)
         Me.TxtNombreUsu.Text = "DEFAULT"
         '
         'btnSalir
@@ -165,24 +164,17 @@ Partial Class F1_AsientosContables
         '
         'btnModificar
         '
-        Me.btnModificar.Visible = False
         '
         'btnNuevo
         '
         '
         'PanelToolBar2
         '
-        Me.PanelToolBar2.Controls.Add(Me.btnbanco)
-        Me.PanelToolBar2.Location = New System.Drawing.Point(803, 0)
-        Me.PanelToolBar2.Margin = New System.Windows.Forms.Padding(2)
-        Me.PanelToolBar2.Size = New System.Drawing.Size(225, 72)
-        Me.PanelToolBar2.Controls.SetChildIndex(Me.btnImprimir, 0)
-        Me.PanelToolBar2.Controls.SetChildIndex(Me.btnbanco, 0)
+        Me.PanelToolBar2.Location = New System.Drawing.Point(1043, 0)
         '
         'PanelPrincipal
         '
-        Me.PanelPrincipal.Margin = New System.Windows.Forms.Padding(2)
-        Me.PanelPrincipal.Size = New System.Drawing.Size(1028, 561)
+        Me.PanelPrincipal.Size = New System.Drawing.Size(1123, 698)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.PanelInferior, 0)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.PanelUsuario, 0)
         Me.PanelPrincipal.Controls.SetChildIndex(Me.PanelSuperior, 0)
@@ -190,15 +182,9 @@ Partial Class F1_AsientosContables
         '
         'btnImprimir
         '
-        Me.btnImprimir.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnImprimir.Location = New System.Drawing.Point(113, 0)
-        Me.btnImprimir.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnImprimir.Size = New System.Drawing.Size(112, 72)
-        Me.btnImprimir.Text = "Asiento General"
         '
         'btnUltimo
         '
-        Me.btnUltimo.Margin = New System.Windows.Forms.Padding(37, 21, 37, 21)
         '
         'btnSiguiente
         '
@@ -211,8 +197,7 @@ Partial Class F1_AsientosContables
         '
         'MPanelUserAct
         '
-        Me.MPanelUserAct.Location = New System.Drawing.Point(828, 0)
-        Me.MPanelUserAct.Margin = New System.Windows.Forms.Padding(2)
+        Me.MPanelUserAct.Location = New System.Drawing.Point(923, 0)
         '
         'MRlAccion
         '
@@ -220,25 +205,21 @@ Partial Class F1_AsientosContables
         '
         '
         Me.MRlAccion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.MRlAccion.Margin = New System.Windows.Forms.Padding(2)
-        Me.MRlAccion.Size = New System.Drawing.Size(427, 72)
+        Me.MRlAccion.Size = New System.Drawing.Size(667, 72)
         '
         'PanelContent
         '
         Me.PanelContent.Controls.Add(Me.SuperTabGeneral)
         Me.PanelContent.Controls.Add(Me.Panel2)
-        Me.PanelContent.Margin = New System.Windows.Forms.Padding(2)
-        Me.PanelContent.Size = New System.Drawing.Size(995, 450)
+        Me.PanelContent.Size = New System.Drawing.Size(1090, 587)
         '
         'Panel1
         '
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel1.Size = New System.Drawing.Size(1028, 450)
+        Me.Panel1.Size = New System.Drawing.Size(1123, 587)
         '
         'MSuperTabControlPanel1
         '
-        Me.MSuperTabControlPanel1.Margin = New System.Windows.Forms.Padding(2)
-        Me.MSuperTabControlPanel1.Size = New System.Drawing.Size(995, 450)
+        Me.MSuperTabControlPanel1.Size = New System.Drawing.Size(1090, 587)
         '
         'MSuperTabControl
         '
@@ -255,21 +236,88 @@ Partial Class F1_AsientosContables
         Me.MSuperTabControl.ControlBox.MenuBox.Name = ""
         Me.MSuperTabControl.ControlBox.Name = ""
         Me.MSuperTabControl.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControl.ControlBox.MenuBox, Me.MSuperTabControl.ControlBox.CloseBox})
-        Me.MSuperTabControl.Margin = New System.Windows.Forms.Padding(2)
         Me.MSuperTabControl.SelectedTabIndex = 1
-        Me.MSuperTabControl.Size = New System.Drawing.Size(1028, 450)
+        Me.MSuperTabControl.Size = New System.Drawing.Size(1123, 587)
         Me.MSuperTabControl.Controls.SetChildIndex(Me.MSuperTabControlPanel1, 0)
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(539, 0)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox1.Location = New System.Drawing.Point(779, 0)
         '
         'PanelBuscador
         '
         Me.PanelBuscador.Controls.Add(Me.GroupPanel2)
-        Me.PanelBuscador.Margin = New System.Windows.Forms.Padding(3)
-        Me.PanelBuscador.Size = New System.Drawing.Size(995, 450)
+        Me.PanelBuscador.Size = New System.Drawing.Size(951, 450)
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.GroupPanelBanco)
+        Me.Panel2.Controls.Add(Me.GrDatos)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1090, 228)
+        Me.Panel2.TabIndex = 244
+        '
+        'GroupPanelBanco
+        '
+        Me.GroupPanelBanco.CanvasColor = System.Drawing.SystemColors.Control
+        Me.GroupPanelBanco.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanelBanco.Controls.Add(Me.grbanco)
+        Me.GroupPanelBanco.DisabledBackColor = System.Drawing.Color.Empty
+        Me.GroupPanelBanco.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupPanelBanco.Location = New System.Drawing.Point(675, 0)
+        Me.GroupPanelBanco.Margin = New System.Windows.Forms.Padding(2)
+        Me.GroupPanelBanco.Name = "GroupPanelBanco"
+        Me.GroupPanelBanco.Size = New System.Drawing.Size(415, 228)
+        '
+        '
+        '
+        Me.GroupPanelBanco.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
+        Me.GroupPanelBanco.Style.BackColorGradientAngle = 90
+        Me.GroupPanelBanco.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
+        Me.GroupPanelBanco.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelBanco.Style.BorderBottomWidth = 1
+        Me.GroupPanelBanco.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.GroupPanelBanco.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelBanco.Style.BorderLeftWidth = 1
+        Me.GroupPanelBanco.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelBanco.Style.BorderRightWidth = 1
+        Me.GroupPanelBanco.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelBanco.Style.BorderTopWidth = 1
+        Me.GroupPanelBanco.Style.CornerDiameter = 4
+        Me.GroupPanelBanco.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.GroupPanelBanco.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
+        Me.GroupPanelBanco.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.GroupPanelBanco.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
+        '
+        '
+        '
+        Me.GroupPanelBanco.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.GroupPanelBanco.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.GroupPanelBanco.TabIndex = 2
+        Me.GroupPanelBanco.Text = "BANCOS"
+        Me.GroupPanelBanco.Visible = False
+        '
+        'grbanco
+        '
+        Me.grbanco.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.grbanco.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grbanco.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grbanco.HeaderFormatStyle.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grbanco.Location = New System.Drawing.Point(0, 0)
+        Me.grbanco.Margin = New System.Windows.Forms.Padding(2)
+        Me.grbanco.Name = "grbanco"
+        Me.grbanco.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.grbanco.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.grbanco.RowFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grbanco.Size = New System.Drawing.Size(409, 205)
+        Me.grbanco.TabIndex = 0
+        Me.grbanco.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'GrDatos
         '
@@ -594,144 +642,6 @@ Partial Class F1_AsientosContables
         Me.tbFechaI.Size = New System.Drawing.Size(100, 20)
         Me.tbFechaI.TabIndex = 121
         '
-        'GroupPanel2
-        '
-        Me.GroupPanel2.BackColor = System.Drawing.Color.White
-        Me.GroupPanel2.CanvasColor = System.Drawing.SystemColors.Control
-        Me.GroupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.GroupPanel2.Controls.Add(Me.grmovimientos)
-        Me.GroupPanel2.DisabledBackColor = System.Drawing.Color.Empty
-        Me.GroupPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanel2.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupPanel2.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(995, 450)
-        '
-        '
-        '
-        Me.GroupPanel2.Style.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(72, Byte), Integer), CType(CType(127, Byte), Integer))
-        Me.GroupPanel2.Style.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(72, Byte), Integer), CType(CType(127, Byte), Integer))
-        Me.GroupPanel2.Style.BackColorGradientAngle = 90
-        Me.GroupPanel2.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel2.Style.BorderBottomWidth = 1
-        Me.GroupPanel2.Style.BorderColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(72, Byte), Integer), CType(CType(127, Byte), Integer))
-        Me.GroupPanel2.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel2.Style.BorderLeftWidth = 1
-        Me.GroupPanel2.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel2.Style.BorderRightWidth = 1
-        Me.GroupPanel2.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanel2.Style.BorderTopWidth = 1
-        Me.GroupPanel2.Style.CornerDiameter = 4
-        Me.GroupPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
-        Me.GroupPanel2.Style.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupPanel2.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
-        Me.GroupPanel2.Style.TextColor = System.Drawing.Color.White
-        Me.GroupPanel2.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
-        '
-        '
-        '
-        Me.GroupPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.GroupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.GroupPanel2.TabIndex = 3
-        Me.GroupPanel2.Text = "BUSCADOR"
-        '
-        'grmovimientos
-        '
-        Me.grmovimientos.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
-        Me.grmovimientos.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grmovimientos.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.None
-        Me.grmovimientos.FlatBorderColor = System.Drawing.Color.DodgerBlue
-        Me.grmovimientos.FocusStyle = Janus.Windows.GridEX.FocusStyle.Solid
-        Me.grmovimientos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grmovimientos.GridLineColor = System.Drawing.Color.DodgerBlue
-        Me.grmovimientos.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid
-        Me.grmovimientos.GroupRowVisualStyle = Janus.Windows.GridEX.GroupRowVisualStyle.UseRowStyle
-        Me.grmovimientos.HeaderFormatStyle.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grmovimientos.HideSelection = Janus.Windows.GridEX.HideSelection.Highlight
-        Me.grmovimientos.Location = New System.Drawing.Point(0, 0)
-        Me.grmovimientos.Name = "grmovimientos"
-        Me.grmovimientos.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
-        Me.grmovimientos.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grmovimientos.SelectedFormatStyle.BackColor = System.Drawing.Color.DodgerBlue
-        Me.grmovimientos.SelectedFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grmovimientos.SelectedFormatStyle.ForeColor = System.Drawing.Color.White
-        Me.grmovimientos.Size = New System.Drawing.Size(989, 427)
-        Me.grmovimientos.TabIndex = 0
-        Me.grmovimientos.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.GroupPanelBanco)
-        Me.Panel2.Controls.Add(Me.GrDatos)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(2)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(995, 228)
-        Me.Panel2.TabIndex = 243
-        '
-        'GroupPanelBanco
-        '
-        Me.GroupPanelBanco.CanvasColor = System.Drawing.SystemColors.Control
-        Me.GroupPanelBanco.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.GroupPanelBanco.Controls.Add(Me.grbanco)
-        Me.GroupPanelBanco.DisabledBackColor = System.Drawing.Color.Empty
-        Me.GroupPanelBanco.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanelBanco.Location = New System.Drawing.Point(675, 0)
-        Me.GroupPanelBanco.Margin = New System.Windows.Forms.Padding(2)
-        Me.GroupPanelBanco.Name = "GroupPanelBanco"
-        Me.GroupPanelBanco.Size = New System.Drawing.Size(320, 228)
-        '
-        '
-        '
-        Me.GroupPanelBanco.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
-        Me.GroupPanelBanco.Style.BackColorGradientAngle = 90
-        Me.GroupPanelBanco.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
-        Me.GroupPanelBanco.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelBanco.Style.BorderBottomWidth = 1
-        Me.GroupPanelBanco.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
-        Me.GroupPanelBanco.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelBanco.Style.BorderLeftWidth = 1
-        Me.GroupPanelBanco.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelBanco.Style.BorderRightWidth = 1
-        Me.GroupPanelBanco.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelBanco.Style.BorderTopWidth = 1
-        Me.GroupPanelBanco.Style.CornerDiameter = 4
-        Me.GroupPanelBanco.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
-        Me.GroupPanelBanco.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
-        Me.GroupPanelBanco.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.GroupPanelBanco.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
-        '
-        '
-        '
-        Me.GroupPanelBanco.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.GroupPanelBanco.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.GroupPanelBanco.TabIndex = 2
-        Me.GroupPanelBanco.Text = "BANCOS"
-        Me.GroupPanelBanco.Visible = False
-        '
-        'grbanco
-        '
-        Me.grbanco.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.grbanco.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grbanco.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grbanco.HeaderFormatStyle.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grbanco.Location = New System.Drawing.Point(0, 0)
-        Me.grbanco.Margin = New System.Windows.Forms.Padding(2)
-        Me.grbanco.Name = "grbanco"
-        Me.grbanco.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
-        Me.grbanco.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grbanco.RowFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grbanco.Size = New System.Drawing.Size(314, 205)
-        Me.grbanco.TabIndex = 0
-        Me.grbanco.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
-        '
         'SuperTabGeneral
         '
         '
@@ -756,9 +666,9 @@ Partial Class F1_AsientosContables
         Me.SuperTabGeneral.ReorderTabsEnabled = True
         Me.SuperTabGeneral.SelectedTabFont = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold)
         Me.SuperTabGeneral.SelectedTabIndex = 0
-        Me.SuperTabGeneral.Size = New System.Drawing.Size(995, 222)
+        Me.SuperTabGeneral.Size = New System.Drawing.Size(1090, 359)
         Me.SuperTabGeneral.TabFont = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SuperTabGeneral.TabIndex = 1
+        Me.SuperTabGeneral.TabIndex = 245
         Me.SuperTabGeneral.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem2, Me.SuperTabItem3})
         Me.SuperTabGeneral.TabStyle = DevComponents.DotNetBar.eSuperTabStyle.Office2010BackstageBlue
         Me.SuperTabGeneral.Text = "SuperTabControl1"
@@ -770,7 +680,7 @@ Partial Class F1_AsientosContables
         Me.SuperTabControlPanel2.Location = New System.Drawing.Point(0, 25)
         Me.SuperTabControlPanel2.Margin = New System.Windows.Forms.Padding(2)
         Me.SuperTabControlPanel2.Name = "SuperTabControlPanel2"
-        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(995, 197)
+        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(1090, 334)
         Me.SuperTabControlPanel2.TabIndex = 1
         Me.SuperTabControlPanel2.TabItem = Me.SuperTabItem2
         '
@@ -787,7 +697,7 @@ Partial Class F1_AsientosContables
         Me.grComprobante.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grComprobante.Office2007CustomColor = System.Drawing.Color.DodgerBlue
         Me.grComprobante.RowFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grComprobante.Size = New System.Drawing.Size(995, 197)
+        Me.grComprobante.Size = New System.Drawing.Size(1090, 334)
         Me.grComprobante.TabIndex = 0
         Me.grComprobante.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -834,6 +744,74 @@ Partial Class F1_AsientosContables
         Me.SuperTabItem3.Text = "Detalle Asiento Banco"
         Me.SuperTabItem3.Visible = False
         '
+        'GroupPanel2
+        '
+        Me.GroupPanel2.BackColor = System.Drawing.Color.White
+        Me.GroupPanel2.CanvasColor = System.Drawing.SystemColors.Control
+        Me.GroupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanel2.Controls.Add(Me.grmovimientos)
+        Me.GroupPanel2.DisabledBackColor = System.Drawing.Color.Empty
+        Me.GroupPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupPanel2.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.GroupPanel2.Name = "GroupPanel2"
+        Me.GroupPanel2.Size = New System.Drawing.Size(951, 450)
+        '
+        '
+        '
+        Me.GroupPanel2.Style.BackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(72, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.GroupPanel2.Style.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(72, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.GroupPanel2.Style.BackColorGradientAngle = 90
+        Me.GroupPanel2.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel2.Style.BorderBottomWidth = 1
+        Me.GroupPanel2.Style.BorderColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(72, Byte), Integer), CType(CType(127, Byte), Integer))
+        Me.GroupPanel2.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel2.Style.BorderLeftWidth = 1
+        Me.GroupPanel2.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel2.Style.BorderRightWidth = 1
+        Me.GroupPanel2.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanel2.Style.BorderTopWidth = 1
+        Me.GroupPanel2.Style.CornerDiameter = 4
+        Me.GroupPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.GroupPanel2.Style.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupPanel2.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
+        Me.GroupPanel2.Style.TextColor = System.Drawing.Color.White
+        Me.GroupPanel2.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
+        '
+        '
+        '
+        Me.GroupPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.GroupPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.GroupPanel2.TabIndex = 4
+        Me.GroupPanel2.Text = "BUSCADOR"
+        '
+        'grmovimientos
+        '
+        Me.grmovimientos.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
+        Me.grmovimientos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.grmovimientos.EnterKeyBehavior = Janus.Windows.GridEX.EnterKeyBehavior.None
+        Me.grmovimientos.FlatBorderColor = System.Drawing.Color.DodgerBlue
+        Me.grmovimientos.FocusStyle = Janus.Windows.GridEX.FocusStyle.Solid
+        Me.grmovimientos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grmovimientos.GridLineColor = System.Drawing.Color.DodgerBlue
+        Me.grmovimientos.GridLineStyle = Janus.Windows.GridEX.GridLineStyle.Solid
+        Me.grmovimientos.GroupRowVisualStyle = Janus.Windows.GridEX.GroupRowVisualStyle.UseRowStyle
+        Me.grmovimientos.HeaderFormatStyle.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grmovimientos.HideSelection = Janus.Windows.GridEX.HideSelection.Highlight
+        Me.grmovimientos.Location = New System.Drawing.Point(0, 0)
+        Me.grmovimientos.Name = "grmovimientos"
+        Me.grmovimientos.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.grmovimientos.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.grmovimientos.SelectedFormatStyle.BackColor = System.Drawing.Color.DodgerBlue
+        Me.grmovimientos.SelectedFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grmovimientos.SelectedFormatStyle.ForeColor = System.Drawing.Color.White
+        Me.grmovimientos.Size = New System.Drawing.Size(945, 427)
+        Me.grmovimientos.TabIndex = 0
+        Me.grmovimientos.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
         'btnbanco
         '
         Me.btnbanco.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
@@ -843,23 +821,22 @@ Partial Class F1_AsientosContables
         Me.btnbanco.Image = Global.Presentacion.My.Resources.Resources.print
         Me.btnbanco.ImageFixedSize = New System.Drawing.Size(48, 48)
         Me.btnbanco.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnbanco.Location = New System.Drawing.Point(1, 0)
+        Me.btnbanco.Location = New System.Drawing.Point(667, 0)
         Me.btnbanco.Name = "btnbanco"
         Me.btnbanco.Size = New System.Drawing.Size(112, 72)
         Me.btnbanco.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btnbanco.TabIndex = 12
+        Me.btnbanco.TabIndex = 13
         Me.btnbanco.Text = "Asiento Banco"
         Me.btnbanco.TextColor = System.Drawing.Color.White
         Me.btnbanco.Visible = False
         '
-        'F1_AsientosContables
+        'F1_AsientoContableBanco
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1028, 561)
-        Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.Name = "F1_AsientosContables"
-        Me.Text = "F1_AsientosContables"
+        Me.ClientSize = New System.Drawing.Size(1123, 698)
+        Me.Name = "F1_AsientoContableBanco"
+        Me.Text = "AsientoContableBanco"
         Me.Controls.SetChildIndex(Me.PanelPrincipal, 0)
         Me.PanelSuperior.ResumeLayout(False)
         Me.PanelInferior.ResumeLayout(False)
@@ -880,50 +857,47 @@ Partial Class F1_AsientosContables
         Me.MSuperTabControl.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelBuscador.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.GroupPanelBanco.ResumeLayout(False)
+        CType(Me.grbanco, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GrDatos.ResumeLayout(False)
         Me.GrDatos.PerformLayout()
         CType(Me.cbSucursal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbTipoCambio, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupPanel2.ResumeLayout(False)
-        CType(Me.grmovimientos, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel2.ResumeLayout(False)
-        Me.GroupPanelBanco.ResumeLayout(False)
-        CType(Me.grbanco, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SuperTabGeneral, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabGeneral.ResumeLayout(False)
         Me.SuperTabControlPanel2.ResumeLayout(False)
         CType(Me.grComprobante, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabControlPanel3.ResumeLayout(False)
         CType(Me.grAsientoBanco, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupPanel2.ResumeLayout(False)
+        CType(Me.grmovimientos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents GrDatos As DevComponents.DotNetBar.Controls.GroupPanel
-    Friend WithEvents VisualStyleManager1 As Janus.Windows.Common.VisualStyleManager
-    Friend WithEvents tbNumi As DevComponents.DotNetBar.Controls.TextBoxX
-    Friend WithEvents tbTipoCambio As DevComponents.Editors.DoubleInput
-    Friend WithEvents LabelX4 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents LabelX1 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents LabelX3 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents tbFechaI As DateTimePicker
-    Friend WithEvents LabelX5 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents tbFechaF As DateTimePicker
-    Friend WithEvents btActualizar As DevComponents.DotNetBar.ButtonX
-    Friend WithEvents GroupPanel2 As DevComponents.DotNetBar.Controls.GroupPanel
-    Friend WithEvents grmovimientos As Janus.Windows.GridEX.GridEX
-    Friend WithEvents btnNuevoTipoCambio As DevComponents.DotNetBar.ButtonX
-    Friend WithEvents LabelX17 As DevComponents.DotNetBar.LabelX
-    Friend WithEvents cbSucursal As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+
     Friend WithEvents Panel2 As Panel
     Friend WithEvents GroupPanelBanco As DevComponents.DotNetBar.Controls.GroupPanel
     Friend WithEvents grbanco As Janus.Windows.GridEX.GridEX
-    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents GrDatos As DevComponents.DotNetBar.Controls.GroupPanel
     Friend WithEvents Lb_Saldo As Label
     Friend WithEvents Lb_Banco As Label
     Friend WithEvents Lb_efec As Label
     Friend WithEvents LabelX7 As DevComponents.DotNetBar.LabelX
     Friend WithEvents LabelX6 As DevComponents.DotNetBar.LabelX
     Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX17 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents cbSucursal As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents btnNuevoTipoCambio As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents btActualizar As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents LabelX5 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbFechaF As DateTimePicker
+    Friend WithEvents tbNumi As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents tbTipoCambio As DevComponents.Editors.DoubleInput
+    Friend WithEvents LabelX4 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX1 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX3 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents tbFechaI As DateTimePicker
     Friend WithEvents SuperTabGeneral As DevComponents.DotNetBar.SuperTabControl
     Friend WithEvents SuperTabControlPanel2 As DevComponents.DotNetBar.SuperTabControlPanel
     Friend WithEvents grComprobante As Janus.Windows.GridEX.GridEX
@@ -931,5 +905,7 @@ Partial Class F1_AsientosContables
     Friend WithEvents SuperTabControlPanel3 As DevComponents.DotNetBar.SuperTabControlPanel
     Friend WithEvents grAsientoBanco As Janus.Windows.GridEX.GridEX
     Friend WithEvents SuperTabItem3 As DevComponents.DotNetBar.SuperTabItem
+    Friend WithEvents GroupPanel2 As DevComponents.DotNetBar.Controls.GroupPanel
+    Friend WithEvents grmovimientos As Janus.Windows.GridEX.GridEX
     Protected WithEvents btnbanco As DevComponents.DotNetBar.ButtonX
 End Class

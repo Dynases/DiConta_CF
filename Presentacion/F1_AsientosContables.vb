@@ -307,6 +307,7 @@ Public Class F1_AsientosContables
         _prAsignarPermisos()
         _prCargarMovimiento()
         _prInhabiliitar()
+
     End Sub
 
     Private Sub _prCargarComboModulos(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
@@ -1685,7 +1686,8 @@ Public Class F1_AsientosContables
 
         End If
 
-        Dim res As Boolean = L_prComprobanteGrabarIntegracion(numiComprobante, "", 1, tbFechaI.Value.Year.ToString, tbFechaI.Value.Month.ToString, "", tbFechaI.Value.Date.ToString("yyyy/MM/dd"), tbTipoCambio.Value.ToString, "", "", gi_empresaNumi, dtDetalle, dtDetalle2, "", 0, tbTipoCambio.Value, tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), 1, _LisTransacciones, cbSucursal.Value,
+        Dim res As Boolean = L_prComprobanteGrabarIntegracion(numiComprobante, "", 1, tbFechaI.Value.Year.ToString, tbFechaI.Value.Month.ToString, "", tbFechaI.Value.Date.ToString("yyyy/MM/dd"), tbTipoCambio.Value.ToString, "", "",
+                                                              gi_empresaNumi, dtDetalle, dtDetalle2, "", 0, tbTipoCambio.Value, tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), 1, _LisTransacciones, cbSucursal.Value,
                                                               tipo, factura, tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"), TipoTransacion, dtTO00111)
         If res Then
             Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)

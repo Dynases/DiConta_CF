@@ -1,10 +1,10 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class F1_AsientosContables
     Inherits Modelos.ModeloF00
 
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -21,7 +21,7 @@ Partial Class F1_AsientosContables
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_AsientosContables))
@@ -269,7 +269,7 @@ Partial Class F1_AsientosContables
         '
         Me.PanelBuscador.Controls.Add(Me.GroupPanel2)
         Me.PanelBuscador.Margin = New System.Windows.Forms.Padding(3)
-        Me.PanelBuscador.Size = New System.Drawing.Size(995, 450)
+        Me.PanelBuscador.Size = New System.Drawing.Size(951, 450)
         '
         'GrDatos
         '
@@ -450,6 +450,7 @@ Partial Class F1_AsientosContables
         Me.cbSucursal.SelectedItem = Nothing
         Me.cbSucursal.Size = New System.Drawing.Size(225, 22)
         Me.cbSucursal.TabIndex = 241
+        Me.cbSucursal.Visible = False
         Me.cbSucursal.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'btnNuevoTipoCambio
@@ -605,7 +606,7 @@ Partial Class F1_AsientosContables
         Me.GroupPanel2.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel2.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(995, 450)
+        Me.GroupPanel2.Size = New System.Drawing.Size(951, 450)
         '
         '
         '
@@ -658,7 +659,7 @@ Partial Class F1_AsientosContables
         Me.grmovimientos.SelectedFormatStyle.BackColor = System.Drawing.Color.DodgerBlue
         Me.grmovimientos.SelectedFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grmovimientos.SelectedFormatStyle.ForeColor = System.Drawing.Color.White
-        Me.grmovimientos.Size = New System.Drawing.Size(989, 427)
+        Me.grmovimientos.Size = New System.Drawing.Size(945, 427)
         Me.grmovimientos.TabIndex = 0
         Me.grmovimientos.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '

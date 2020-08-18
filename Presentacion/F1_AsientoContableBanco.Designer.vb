@@ -23,11 +23,13 @@ Partial Class F1_AsientoContableBanco
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F1_AsientoContableBanco))
+        Dim cbbanco_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbSucursal_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GroupPanelBanco = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.grbanco = New Janus.Windows.GridEX.GridEX()
         Me.GrDatos = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.cbbanco = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
         Me.Lb_Saldo = New System.Windows.Forms.Label()
         Me.Lb_Banco = New System.Windows.Forms.Label()
         Me.Lb_efec = New System.Windows.Forms.Label()
@@ -77,6 +79,7 @@ Partial Class F1_AsientoContableBanco
         Me.GroupPanelBanco.SuspendLayout()
         CType(Me.grbanco, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GrDatos.SuspendLayout()
+        CType(Me.cbbanco, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cbSucursal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbTipoCambio, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SuperTabGeneral, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -182,6 +185,7 @@ Partial Class F1_AsientoContableBanco
         '
         'btnImprimir
         '
+        Me.btnImprimir.Visible = False
         '
         'btnUltimo
         '
@@ -301,7 +305,6 @@ Partial Class F1_AsientoContableBanco
         Me.GroupPanelBanco.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.GroupPanelBanco.TabIndex = 2
         Me.GroupPanelBanco.Text = "BANCOS"
-        Me.GroupPanelBanco.Visible = False
         '
         'grbanco
         '
@@ -323,6 +326,7 @@ Partial Class F1_AsientoContableBanco
         '
         Me.GrDatos.CanvasColor = System.Drawing.SystemColors.Control
         Me.GrDatos.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GrDatos.Controls.Add(Me.cbbanco)
         Me.GrDatos.Controls.Add(Me.Lb_Saldo)
         Me.GrDatos.Controls.Add(Me.Lb_Banco)
         Me.GrDatos.Controls.Add(Me.Lb_efec)
@@ -378,6 +382,19 @@ Partial Class F1_AsientoContableBanco
         Me.GrDatos.TabIndex = 0
         Me.GrDatos.Text = "DATOS"
         '
+        'cbbanco
+        '
+        cbbanco_DesignTimeLayout.LayoutString = resources.GetString("cbbanco_DesignTimeLayout.LayoutString")
+        Me.cbbanco.DesignTimeLayout = cbbanco_DesignTimeLayout
+        Me.cbbanco.Location = New System.Drawing.Point(339, 34)
+        Me.cbbanco.Margin = New System.Windows.Forms.Padding(2)
+        Me.cbbanco.Name = "cbbanco"
+        Me.cbbanco.SelectedIndex = -1
+        Me.cbbanco.SelectedItem = Nothing
+        Me.cbbanco.Size = New System.Drawing.Size(142, 22)
+        Me.cbbanco.TabIndex = 246
+        Me.cbbanco.Visible = False
+        '
         'Lb_Saldo
         '
         Me.Lb_Saldo.BackColor = System.Drawing.Color.Transparent
@@ -388,7 +405,6 @@ Partial Class F1_AsientoContableBanco
         Me.Lb_Saldo.TabIndex = 244
         Me.Lb_Saldo.Text = "0"
         Me.Lb_Saldo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Lb_Saldo.Visible = False
         '
         'Lb_Banco
         '
@@ -400,7 +416,6 @@ Partial Class F1_AsientoContableBanco
         Me.Lb_Banco.TabIndex = 244
         Me.Lb_Banco.Text = "0"
         Me.Lb_Banco.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Lb_Banco.Visible = False
         '
         'Lb_efec
         '
@@ -412,7 +427,6 @@ Partial Class F1_AsientoContableBanco
         Me.Lb_efec.TabIndex = 244
         Me.Lb_efec.Text = "0"
         Me.Lb_efec.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Lb_efec.Visible = False
         '
         'LabelX7
         '
@@ -430,7 +444,6 @@ Partial Class F1_AsientoContableBanco
         Me.LabelX7.Size = New System.Drawing.Size(59, 27)
         Me.LabelX7.TabIndex = 243
         Me.LabelX7.Text = "Saldo"
-        Me.LabelX7.Visible = False
         '
         'LabelX6
         '
@@ -448,7 +461,6 @@ Partial Class F1_AsientoContableBanco
         Me.LabelX6.Size = New System.Drawing.Size(73, 27)
         Me.LabelX6.TabIndex = 243
         Me.LabelX6.Text = "Bancos"
-        Me.LabelX6.Visible = False
         '
         'LabelX2
         '
@@ -466,7 +478,6 @@ Partial Class F1_AsientoContableBanco
         Me.LabelX2.Size = New System.Drawing.Size(82, 27)
         Me.LabelX2.TabIndex = 243
         Me.LabelX2.Text = "Efectivo"
-        Me.LabelX2.Visible = False
         '
         'LabelX17
         '
@@ -484,6 +495,7 @@ Partial Class F1_AsientoContableBanco
         Me.LabelX17.Size = New System.Drawing.Size(55, 16)
         Me.LabelX17.TabIndex = 242
         Me.LabelX17.Text = "Modulo:"
+        Me.LabelX17.Visible = False
         '
         'cbSucursal
         '
@@ -498,6 +510,7 @@ Partial Class F1_AsientoContableBanco
         Me.cbSucursal.SelectedItem = Nothing
         Me.cbSucursal.Size = New System.Drawing.Size(225, 22)
         Me.cbSucursal.TabIndex = 241
+        Me.cbSucursal.Visible = False
         Me.cbSucursal.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'btnNuevoTipoCambio
@@ -707,6 +720,7 @@ Partial Class F1_AsientoContableBanco
         Me.SuperTabItem2.GlobalItem = False
         Me.SuperTabItem2.Name = "SuperTabItem2"
         Me.SuperTabItem2.Text = "Detalle Asiento General"
+        Me.SuperTabItem2.Visible = False
         '
         'SuperTabControlPanel3
         '
@@ -715,7 +729,7 @@ Partial Class F1_AsientoContableBanco
         Me.SuperTabControlPanel3.Location = New System.Drawing.Point(0, 25)
         Me.SuperTabControlPanel3.Margin = New System.Windows.Forms.Padding(2)
         Me.SuperTabControlPanel3.Name = "SuperTabControlPanel3"
-        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(995, 197)
+        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(1090, 334)
         Me.SuperTabControlPanel3.TabIndex = 0
         Me.SuperTabControlPanel3.TabItem = Me.SuperTabItem3
         '
@@ -732,7 +746,7 @@ Partial Class F1_AsientoContableBanco
         Me.grAsientoBanco.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grAsientoBanco.Office2007CustomColor = System.Drawing.Color.DodgerBlue
         Me.grAsientoBanco.RowFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grAsientoBanco.Size = New System.Drawing.Size(995, 197)
+        Me.grAsientoBanco.Size = New System.Drawing.Size(1090, 334)
         Me.grAsientoBanco.TabIndex = 1
         Me.grAsientoBanco.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -742,7 +756,6 @@ Partial Class F1_AsientoContableBanco
         Me.SuperTabItem3.GlobalItem = False
         Me.SuperTabItem3.Name = "SuperTabItem3"
         Me.SuperTabItem3.Text = "Detalle Asiento Banco"
-        Me.SuperTabItem3.Visible = False
         '
         'GroupPanel2
         '
@@ -828,7 +841,6 @@ Partial Class F1_AsientoContableBanco
         Me.btnbanco.TabIndex = 13
         Me.btnbanco.Text = "Asiento Banco"
         Me.btnbanco.TextColor = System.Drawing.Color.White
-        Me.btnbanco.Visible = False
         '
         'F1_AsientoContableBanco
         '
@@ -862,6 +874,7 @@ Partial Class F1_AsientoContableBanco
         CType(Me.grbanco, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GrDatos.ResumeLayout(False)
         Me.GrDatos.PerformLayout()
+        CType(Me.cbbanco, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cbSucursal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbTipoCambio, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SuperTabGeneral, System.ComponentModel.ISupportInitialize).EndInit()
@@ -908,4 +921,5 @@ Partial Class F1_AsientoContableBanco
     Friend WithEvents GroupPanel2 As DevComponents.DotNetBar.Controls.GroupPanel
     Friend WithEvents grmovimientos As Janus.Windows.GridEX.GridEX
     Protected WithEvents btnbanco As DevComponents.DotNetBar.ButtonX
+    Friend WithEvents cbbanco As Janus.Windows.GridEX.EditControls.MultiColumnCombo
 End Class

@@ -529,8 +529,6 @@ Public Class F00_Movimientos
                 grdetalle.Row = grdetalle.RowCount - 1
             End If
         End If
-
-
     End Sub
     Public Function _ValidarCampos() As Boolean
         If (cbConcepto.SelectedIndex < 0) Then

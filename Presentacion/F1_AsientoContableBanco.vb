@@ -954,9 +954,19 @@ Public Class F1_AsientoContableBanco
             End If
 
         End If
+        If (Not IsDBNull(grAsientoBanco)) Then
+            If (grAsientoBanco.RowCount > 0) Then
+                CType(grAsientoBanco.DataSource, DataTable).Rows.Clear()
+            End If
+        End If
+        If (Not IsDBNull(grbanco)) Then
+            If (grbanco.RowCount > 0) Then
+                CType(grbanco.DataSource, DataTable).Rows.Clear()
+            End If
+        End If
         _prCrearColumns()
-        CType(grAsientoBanco.DataSource, DataTable).Rows.Clear()
-        CType(grbanco.DataSource, DataTable).Rows.Clear()
+        'CType(grAsientoBanco.DataSource, DataTable).Rows.Clear()
+        'CType(grbanco.DataSource, DataTable).Rows.Clear()
         _prAddFilaBanco()
     End Sub
     Sub _prCrearColumns()

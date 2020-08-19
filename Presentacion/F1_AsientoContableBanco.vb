@@ -664,8 +664,10 @@ Public Class F1_AsientoContableBanco
             Dim numiComprobante As String = ""
             _prCargarCodigoBanco()
             Dim dt As DataTable = L_prObtenerPlantila(cbSucursal.Value)
-            Dim tipo As Integer = dt.Rows(0).Item("Tipo")
-            Dim factura As Integer = dt.Rows(0).Item("Factura")
+            'Dim tipo As Integer = dt.Rows(0).Item("Tipo")
+            'Dim factura As Integer = dt.Rows(0).Item("Factura")
+            Dim tipo As Integer = 0
+            Dim factura As Integer = 0
             Dim TipoTransacion As Integer = 0
 
             If (cbSucursal.Value = 1 Or cbSucursal.Value = 2 Or cbSucursal.Value = 1004 Or cbSucursal.Value = 1005) Then ''' Si es compra o es asiento contable de cuentas por cobrar
@@ -1311,7 +1313,7 @@ Public Class F1_AsientoContableBanco
             If (grbanco.RowCount >= 2) Then
                 Dim estado As Integer = grbanco.GetValue("caestado")
                 Dim pos As Integer = -1
-                Dim lin As Integer = grbanco.GetValue("canumi")
+                Dim lin As Integer = grbanco.GetValue("Id")
                 _fnObtenerFilaDetalle(pos, lin)
                 If (estado = 0) Then
                     CType(grbanco.DataSource, DataTable).Rows(pos).Item("caestado") = -2
@@ -1330,7 +1332,7 @@ Public Class F1_AsientoContableBanco
     End Sub
     Public Sub _fnObtenerFilaDetalle(ByRef pos As Integer, numi As Integer)
         For i As Integer = 0 To CType(grbanco.DataSource, DataTable).Rows.Count - 1 Step 1
-            Dim _numi As Integer = CType(grbanco.DataSource, DataTable).Rows(i).Item("canumi")
+            Dim _numi As Integer = CType(grbanco.DataSource, DataTable).Rows(i).Item("Id")
             If (_numi = numi) Then
                 pos = i
                 Return

@@ -908,6 +908,9 @@ Public Class F1_AsientoContableBanco
             '    cbSucursal.Focus()
             '    Return
             'End If
+            If L_fnExisteComprobanteBanco(tbFechaI.Value, 2) Then
+                Throw New Exception("EXISTE UN INTEGRACIÓN CON LA FECHA ESPECÍFICADA")
+            End If
             Dim dtTotales = L_prObtenerTotalesContadoIntegracionBanco(tbFechaI.Value.ToString("yyyy/MM/dd"))
             Dim totalGeneral As Double = 0
             For Each Cantidad As DataRow In dtTotales.Rows
@@ -917,7 +920,7 @@ Public Class F1_AsientoContableBanco
                 Lb_efec.Text = totalGeneral.ToString
             Else
                 Lb_efec.Text = 0
-                Throw New Exception("NO SE ENCONTRO REGISTROS CON LA FECHA ESPECIFICADA")
+                Throw New Exception("NO SE ENCONTRO REGISTROS CON LA FECHA ESPECÍFICADA")
             End If
         Catch ex As Exception
             MostrarMensajeError(ex.Message)

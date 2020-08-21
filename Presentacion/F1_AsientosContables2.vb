@@ -1188,6 +1188,9 @@ Public Class F1_AsientosContables2
             Dim bandera As Boolean = False
             bandera = ef.band
             If (bandera = True) Then
+                If Not L_fnExisteComprobanteBanco(tbFechaI.Value, 1) Then
+                    Throw New Exception("No se puede eliminar, existe una integración a banco con la fecha específicada")
+                End If
                 Dim mensajeError As String = ""
                 Dim res As Boolean = L_fnEliminarAsientoContable(tbNumi.Text, mensajeError)
                 If res Then

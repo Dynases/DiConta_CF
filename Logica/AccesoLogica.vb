@@ -4192,6 +4192,25 @@ Sucursal.canumi =ZY003.ydsuc" + _Cadena
         End If
         Return _resultado
     End Function
+    Public Shared Function L_fnExisteComprobanteBanco(fecha As DateTime, cantidad As Integer) As Boolean
+        Dim _resultado As Boolean
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 15))
+        _listParam.Add(New Datos.DParametro("@fecha1", fecha))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TI005", _listParam)
+        If _Tabla.Rows.Count > 0 Then
+            If _Tabla.Rows(0).Item(0) = cantidad Then
+                _resultado = True
+            Else
+                _resultado = False
+            End If
+        Else
+            _resultado = False
+        End If
+        Return _resultado
+    End Function
     Public Shared Function L_fnEliminarAsientoContableBanco(_vcnumi As String, ByRef mensaje As String) As Boolean
         Dim _resultado As Boolean
         If L_fnbValidarEliminacion(_vcnumi, "TI005", "ifnumi", mensaje) = True Then

@@ -27,6 +27,9 @@ Public Class F1_AsientosContables2
             Dim blah As New Bitmap(New Bitmap(My.Resources.compra), 20, 20)
             Dim ico As Icon = Icon.FromHandle(blah.GetHicon())
             Me.Icon = ico
+            btnModificar.Visible = False
+
+
             _prAsignarPermisos()
             _prCargarMovimiento()
             _prInhabiliitar()
@@ -710,11 +713,9 @@ Public Class F1_AsientosContables2
                                           eToastPosition.TopCenter
                                           )
                 _prImprimirComprobante(numiComprobante)
-                _prCargarMovimiento()
+                Filtrar(2)
                 _prInhabiliitar()
-                If Dgv_Buscador.RowCount > 0 Then
-                    _prMostrarRegistro(0)
-                End If
+
             Else
                 Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
                 ToastNotification.Show(Me, "Los codigos no pudieron ser modificados".ToUpper, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)
@@ -722,6 +723,16 @@ Public Class F1_AsientosContables2
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
         End Try
+    End Sub
+    Private Sub Filtrar(tipo As Integer)
+        _prCargarMovimiento()
+        If Dgv_Buscador.RowCount > 0 Then
+            _MPos = 0
+            _prMostrarRegistro(IIf(tipo = 1, _MPos, Dgv_Buscador.RowCount - 1))
+        Else
+            _prLimpiar()
+            LblPaginacion.Text = "0/0"
+        End If
     End Sub
     Private Sub _prImprimirComprobante(numiComprobante)
         Try
@@ -750,6 +761,7 @@ Public Class F1_AsientosContables2
     End Sub
     Public Sub _prMostrarRegistro(_N As Integer)
         Try
+            Dgv_Buscador.Row = _N
             With Dgv_Buscador
                 tbNumi.Text = .GetValue("ifnumi")
                 tbFechaI.Value = .GetValue("iffechai")
@@ -1185,11 +1197,8 @@ Public Class F1_AsientosContables2
                                               img, 2000,
                                               eToastGlowColor.Green,
                                               eToastPosition.TopCenter)
-                    _prCargarMovimiento()
+                    Filtrar(1)
                     _prInhabiliitar()
-                    If Dgv_Buscador.RowCount > 0 Then
-                        _prMostrarRegistro(0)
-                    End If
                 Else
                     Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
                     ToastNotification.Show(Me, mensajeError, img, 2000, eToastGlowColor.Red, eToastPosition.BottomCenter)

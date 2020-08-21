@@ -49,9 +49,6 @@ Partial Class F1_AsientoContableBanco
         Me.LabelX3 = New DevComponents.DotNetBar.LabelX()
         Me.tbFechaI = New System.Windows.Forms.DateTimePicker()
         Me.SuperTabGeneral = New DevComponents.DotNetBar.SuperTabControl()
-        Me.SuperTabControlPanel2 = New DevComponents.DotNetBar.SuperTabControlPanel()
-        Me.grComprobante = New Janus.Windows.GridEX.GridEX()
-        Me.SuperTabItem2 = New DevComponents.DotNetBar.SuperTabItem()
         Me.SuperTabControlPanel3 = New DevComponents.DotNetBar.SuperTabControlPanel()
         Me.grAsientoBanco = New Janus.Windows.GridEX.GridEX()
         Me.SuperTabItem3 = New DevComponents.DotNetBar.SuperTabItem()
@@ -84,8 +81,6 @@ Partial Class F1_AsientoContableBanco
         CType(Me.tbTipoCambio, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SuperTabGeneral, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabGeneral.SuspendLayout()
-        Me.SuperTabControlPanel2.SuspendLayout()
-        CType(Me.grComprobante, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControlPanel3.SuspendLayout()
         CType(Me.grAsientoBanco, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanel2.SuspendLayout()
@@ -251,7 +246,7 @@ Partial Class F1_AsientoContableBanco
         'PanelBuscador
         '
         Me.PanelBuscador.Controls.Add(Me.GroupPanel2)
-        Me.PanelBuscador.Size = New System.Drawing.Size(951, 450)
+        Me.PanelBuscador.Size = New System.Drawing.Size(1090, 587)
         '
         'Panel2
         '
@@ -670,7 +665,6 @@ Partial Class F1_AsientoContableBanco
         Me.SuperTabGeneral.ControlBox.MenuBox.Name = ""
         Me.SuperTabGeneral.ControlBox.Name = ""
         Me.SuperTabGeneral.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabGeneral.ControlBox.MenuBox, Me.SuperTabGeneral.ControlBox.CloseBox})
-        Me.SuperTabGeneral.Controls.Add(Me.SuperTabControlPanel2)
         Me.SuperTabGeneral.Controls.Add(Me.SuperTabControlPanel3)
         Me.SuperTabGeneral.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SuperTabGeneral.Location = New System.Drawing.Point(0, 228)
@@ -682,45 +676,9 @@ Partial Class F1_AsientoContableBanco
         Me.SuperTabGeneral.Size = New System.Drawing.Size(1090, 359)
         Me.SuperTabGeneral.TabFont = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SuperTabGeneral.TabIndex = 245
-        Me.SuperTabGeneral.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem2, Me.SuperTabItem3})
+        Me.SuperTabGeneral.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem3})
         Me.SuperTabGeneral.TabStyle = DevComponents.DotNetBar.eSuperTabStyle.Office2010BackstageBlue
         Me.SuperTabGeneral.Text = "SuperTabControl1"
-        '
-        'SuperTabControlPanel2
-        '
-        Me.SuperTabControlPanel2.Controls.Add(Me.grComprobante)
-        Me.SuperTabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlPanel2.Location = New System.Drawing.Point(0, 25)
-        Me.SuperTabControlPanel2.Margin = New System.Windows.Forms.Padding(2)
-        Me.SuperTabControlPanel2.Name = "SuperTabControlPanel2"
-        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(1090, 334)
-        Me.SuperTabControlPanel2.TabIndex = 1
-        Me.SuperTabControlPanel2.TabItem = Me.SuperTabItem2
-        '
-        'grComprobante
-        '
-        Me.grComprobante.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
-        Me.grComprobante.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.grComprobante.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grComprobante.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grComprobante.HeaderFormatStyle.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grComprobante.Location = New System.Drawing.Point(0, 0)
-        Me.grComprobante.Margin = New System.Windows.Forms.Padding(2)
-        Me.grComprobante.Name = "grComprobante"
-        Me.grComprobante.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
-        Me.grComprobante.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grComprobante.RowFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.grComprobante.Size = New System.Drawing.Size(1090, 334)
-        Me.grComprobante.TabIndex = 0
-        Me.grComprobante.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
-        '
-        'SuperTabItem2
-        '
-        Me.SuperTabItem2.AttachedControl = Me.SuperTabControlPanel2
-        Me.SuperTabItem2.GlobalItem = False
-        Me.SuperTabItem2.Name = "SuperTabItem2"
-        Me.SuperTabItem2.Text = "Detalle Asiento General"
-        Me.SuperTabItem2.Visible = False
         '
         'SuperTabControlPanel3
         '
@@ -768,7 +726,7 @@ Partial Class F1_AsientoContableBanco
         Me.GroupPanel2.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel2.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(951, 450)
+        Me.GroupPanel2.Size = New System.Drawing.Size(1090, 587)
         '
         '
         '
@@ -821,7 +779,7 @@ Partial Class F1_AsientoContableBanco
         Me.grmovimientos.SelectedFormatStyle.BackColor = System.Drawing.Color.DodgerBlue
         Me.grmovimientos.SelectedFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grmovimientos.SelectedFormatStyle.ForeColor = System.Drawing.Color.White
-        Me.grmovimientos.Size = New System.Drawing.Size(945, 427)
+        Me.grmovimientos.Size = New System.Drawing.Size(1084, 564)
         Me.grmovimientos.TabIndex = 0
         Me.grmovimientos.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -879,8 +837,6 @@ Partial Class F1_AsientoContableBanco
         CType(Me.tbTipoCambio, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SuperTabGeneral, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabGeneral.ResumeLayout(False)
-        Me.SuperTabControlPanel2.ResumeLayout(False)
-        CType(Me.grComprobante, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabControlPanel3.ResumeLayout(False)
         CType(Me.grAsientoBanco, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanel2.ResumeLayout(False)
@@ -912,9 +868,6 @@ Partial Class F1_AsientoContableBanco
     Friend WithEvents LabelX3 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbFechaI As DateTimePicker
     Friend WithEvents SuperTabGeneral As DevComponents.DotNetBar.SuperTabControl
-    Friend WithEvents SuperTabControlPanel2 As DevComponents.DotNetBar.SuperTabControlPanel
-    Friend WithEvents grComprobante As Janus.Windows.GridEX.GridEX
-    Friend WithEvents SuperTabItem2 As DevComponents.DotNetBar.SuperTabItem
     Friend WithEvents SuperTabControlPanel3 As DevComponents.DotNetBar.SuperTabControlPanel
     Friend WithEvents grAsientoBanco As Janus.Windows.GridEX.GridEX
     Friend WithEvents SuperTabItem3 As DevComponents.DotNetBar.SuperTabItem

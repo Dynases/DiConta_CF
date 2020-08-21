@@ -2944,6 +2944,8 @@ ControlChars.Lf & "Stack Trace:" & ControlChars.Lf & e.StackTrace
                                 If frm.seleccionado = True Then
                                     grDetalle.SetValue("numiCompra", _detalleDetalleCompras.Rows.Count)
                                     grDetalle.SetValue("obobs", "F:" + frm.tbinrofactura.Text)
+                                    grDetalle.SetValue("obdebebs", frm.tbCreditoFiscal.Text)
+                                    grDetalle.SetValue("obdebeus", Convert.ToDouble(frm.tbCreditoFiscal.Text) / tbTipoCambio.Value)
                                     'inserto la imagen para que puedan editar el comprobante
                                     _prInsertarImagen()
                                 End If

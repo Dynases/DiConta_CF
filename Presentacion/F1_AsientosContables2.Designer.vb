@@ -220,7 +220,7 @@ Partial Class F1_AsientosContables2
         'PanelBuscador
         '
         Me.PanelBuscador.Controls.Add(Me.GroupPanel2)
-        Me.PanelBuscador.Size = New System.Drawing.Size(995, 450)
+        Me.PanelBuscador.Size = New System.Drawing.Size(951, 450)
         '
         'SuperTabGeneral
         '
@@ -498,7 +498,7 @@ Partial Class F1_AsientosContables2
         Me.GroupPanel2.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel2.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(995, 450)
+        Me.GroupPanel2.Size = New System.Drawing.Size(951, 450)
         '
         '
         '
@@ -551,7 +551,7 @@ Partial Class F1_AsientosContables2
         Me.Dgv_Buscador.SelectedFormatStyle.BackColor = System.Drawing.Color.DodgerBlue
         Me.Dgv_Buscador.SelectedFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Dgv_Buscador.SelectedFormatStyle.ForeColor = System.Drawing.Color.White
-        Me.Dgv_Buscador.Size = New System.Drawing.Size(989, 427)
+        Me.Dgv_Buscador.Size = New System.Drawing.Size(945, 427)
         Me.Dgv_Buscador.TabIndex = 0
         Me.Dgv_Buscador.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '

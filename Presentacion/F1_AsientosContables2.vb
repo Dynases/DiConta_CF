@@ -111,34 +111,34 @@ Public Class F1_AsientosContables2
                 .Width = 100
                 .Caption = "CODIGO"
                 .Visible = True
-
             End With
 
             With Dgv_Buscador.RootTable.Columns("ifto001numi")
-                .Width = 100
+                .Width = 150
                 .Visible = True
                 .Caption = "COD COMPROBANTE"
             End With
             With Dgv_Buscador.RootTable.Columns("oanumdoc")
-                .Width = 110
+                .Width = 150
                 .Visible = True
                 .Caption = "NRO DOCUMENTO"
             End With
 
             With Dgv_Buscador.RootTable.Columns("iftc")
-                .Width = 110
+                .Width = 150
                 .Visible = True
                 .Caption = "TIPO DE CAMBIO"
+                .FormatString = "0.00"
             End With
             With Dgv_Buscador.RootTable.Columns("iffechai")
-                .Width = 110
+                .Width = 150
                 .Visible = True
                 .Caption = "FECHA I".ToUpper
                 .FormatString = "dd/MM/yyyy"
             End With
             With Dgv_Buscador.RootTable.Columns("iffechaf")
                 .Width = 110
-                .Visible = True
+                .Visible = False
                 .Caption = "FECHA F".ToUpper
                 .FormatString = "dd/MM/yyyy"
             End With
@@ -163,7 +163,12 @@ Public Class F1_AsientosContables2
                 .CompareTarget = ColumnCompareTarget.Text
                 .DefaultGroupInterval = GroupInterval.Text
                 .AllowSort = False
-
+                .Visible = False
+            End With
+            With Dgv_Buscador.RootTable.Columns("ifto001numibanco")
+                .Width = 50
+                .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+                .Visible = False
             End With
             With Dgv_Buscador
                 .DefaultFilterRowComparison = FilterConditionOperator.Equal

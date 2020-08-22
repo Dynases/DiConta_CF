@@ -246,7 +246,7 @@ Partial Class F1_AsientoContableBanco
         'PanelBuscador
         '
         Me.PanelBuscador.Controls.Add(Me.GroupPanel2)
-        Me.PanelBuscador.Size = New System.Drawing.Size(1090, 587)
+        Me.PanelBuscador.Size = New System.Drawing.Size(951, 450)
         '
         'Panel2
         '
@@ -726,7 +726,7 @@ Partial Class F1_AsientoContableBanco
         Me.GroupPanel2.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel2.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(1090, 587)
+        Me.GroupPanel2.Size = New System.Drawing.Size(951, 450)
         '
         '
         '
@@ -779,7 +779,7 @@ Partial Class F1_AsientoContableBanco
         Me.grmovimientos.SelectedFormatStyle.BackColor = System.Drawing.Color.DodgerBlue
         Me.grmovimientos.SelectedFormatStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grmovimientos.SelectedFormatStyle.ForeColor = System.Drawing.Color.White
-        Me.grmovimientos.Size = New System.Drawing.Size(1084, 564)
+        Me.grmovimientos.Size = New System.Drawing.Size(945, 427)
         Me.grmovimientos.TabIndex = 0
         Me.grmovimientos.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '

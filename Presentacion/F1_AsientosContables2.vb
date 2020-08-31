@@ -940,10 +940,10 @@ Public Class F1_AsientosContables2
                 Dim factura As Integer = dt.Rows(0).Item("Factura")
 
                 If (TipoVenta = 1) Then
-                    Dim dtTotales = L_prObtenerTotalesContado(tbFechaI.Value.ToString("yyyy/MM/dd"))
+                    Dim dtTotales = L_prObtenerTotalesConciliacion(tbFechaI.Value.ToString("yyyy/MM/dd"))
                     Dim totalGeneral As Double = 0
                     For Each Cantidad As DataRow In dtTotales.Rows
-                        totalGeneral = totalGeneral + Cantidad.Item("TotalEfectivo")
+                        totalGeneral = totalGeneral + Cantidad.Item("TotalConciliacion")
                     Next
                     If (totalGeneral > 0) Then
                         Return totalGeneral

@@ -6105,6 +6105,16 @@ Sucursal.canumi =ZY003.ydsuc" + _Cadena
         _Tabla = D_ProcedimientoConParam("sp_Mam_Asiento", _listParam)
         Return _Tabla
     End Function
+    Public Shared Function L_prObtenerTotalesConciliacionIntegracionBanco(fechai As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 67))
+        _listParam.Add(New Datos.DParametro("@seuact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@fechaI", fechai))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_Asiento", _listParam)
+        Return _Tabla
+    End Function
     Public Shared Function L_prObtenerIdCaja(fechai As String) As DataTable
         Dim _Tabla As DataTable
 

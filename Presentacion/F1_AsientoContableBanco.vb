@@ -916,10 +916,10 @@ Public Class F1_AsientoContableBanco
             If L_fnExisteComprobanteBanco(tbFechaI.Value, 2) Then
                 Throw New Exception("EXISTE UN INTEGRACIÓN CON LA FECHA ESPECÍFICADA")
             End If
-            Dim dtTotales = L_prObtenerTotalesContadoIntegracionBanco(tbFechaI.Value.ToString("yyyy/MM/dd"))
+            Dim dtTotales = L_prObtenerTotalesConciliacionIntegracionBanco(tbFechaI.Value.ToString("yyyy/MM/dd"))
             Dim totalGeneral As Double = 0
             For Each Cantidad As DataRow In dtTotales.Rows
-                totalGeneral = totalGeneral + Cantidad.Item("TotalEfectivo")
+                totalGeneral = totalGeneral + Cantidad.Item("TotalConciliacion")
             Next
             If (totalGeneral > 0) Then
                 Lb_efec.Text = totalGeneral.ToString
